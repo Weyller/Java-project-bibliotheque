@@ -1,5 +1,10 @@
 package db_Controller;
 import java.sql.*;
+
+/*
+ * 
+ * Access et methods for the librairian 
+ * */
 public class LibraireDao {
 
 	

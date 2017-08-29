@@ -8,7 +8,9 @@ import java.sql.*;
 import java.util.Date;
 
 
-
+/*
+ * Methods for the books addition
+ * */
 public class LivresDao {
 	
 	static Connection	con=DB_Connection.getConnection();

@@ -2,6 +2,7 @@ package db_Controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 /*
  * Class for database access
@@ -17,8 +18,17 @@ public class DB_Connection {
 		String password = "root";
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/DB_Bibliotheque2","root","root");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","root");
 			System.out.println("Connection to DB ... success");
+			
+			
+			Statement stmt;
+			stmt = con.createStatement();
+			stmt.executeUpdate(
+					"CREATE DATABASE IF NOT EXISTS DB_Bibliotheque3");
+			
+			stmt.executeUpdate("use DB_Bibliotheque3");
+			
 			
 		}catch(Exception e){System.out.println(e);}
 		

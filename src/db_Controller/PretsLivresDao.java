@@ -1,5 +1,11 @@
 package db_Controller;
 import java.sql.*;
+
+
+/*
+ * Methods to manage book loans
+ * 
+ * */
 public class PretsLivresDao {
 	
 public static boolean checkLivre(int noExemplaire){

@@ -3,6 +3,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
+/*
+ * 
+ * Class for book returns
+ * */
 public class RetourLivresDao {
 	
 	//===============================================??????????????????????????

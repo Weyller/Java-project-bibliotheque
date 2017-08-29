@@ -79,7 +79,7 @@ public class AccessAdmin extends JFrame {
 		btnDeleteLibrarian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			RetirerLibraire.main(new String[]{});
-			frame.dispose();
+			frame.setVisible(false);
 			}
 		});
 		btnDeleteLibrarian.setFont(new Font("Tahoma", Font.PLAIN, 15));

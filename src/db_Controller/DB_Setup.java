@@ -8,42 +8,31 @@ public class DB_Setup {
 	
 	public static boolean success = false;
 	
+	
+	/**
+	 * 
+	 * Main Method that initialise the database and the tables
+	 * */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		
+	
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
 
-
-			String url = "jdbc:mysql://localhost:3306/";
 			Connection con = DB_Connection.getConnection();
-
-			System.out.println("URL: " + url);
-			System.out.println("Connection: " + con);
 
 			Statement stmt;
 			stmt = con.createStatement();
-			stmt.executeUpdate(
-					"CREATE DATABASE IF NOT EXISTS DB_Bibliotheque2");
-			stmt.close();
-			con.close();
+			con.setAutoCommit(false);
 
-			url = "jdbc:mysql://localhost:3306/DB_Bibliotheque2";
-			con = DriverManager.getConnection(url, "root", "root");
-
-			System.out.println("URL: " + url);
-			System.out.println("Connection: " + con);
 			 //-----------SuperAdministrateur----------------------//
-            stmt = con.createStatement();
+            //stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS superadmin " + 
 							"(id int(10) NOT NULL, " +
 							"useradmin varchar(10) NOT NULL,  " +
 							"passadmin varchar(10) NOT NULL)");
             
-            stmt = con.createStatement();
+           // stmt = con.createStatement();
 			stmt.executeUpdate("INSERT INTO superadmin (id, useradmin, passadmin) VALUES" +
 		 			"(1, 'admin', 'admin123')"); 
             
@@ -60,7 +49,7 @@ public class DB_Setup {
 							"Password VARCHAR(10) NOT NULL,  " +
 					"PRIMARY KEY(IdAdmin))");
 		 
-			stmt = con.createStatement();
+			//stmt = con.createStatement();
 			stmt.executeUpdate("INSERT INTO administration (IdAdmin, nomAdmin, PrAdmin, Login, Password)" +
 		 			"VALUES (1, 'johachim', 'koffi', 'koffi', 'admin')"); 
 			stmt.executeUpdate("INSERT INTO administration (IdAdmin, nomAdmin, PrAdmin, Login, Password)" +
@@ -72,7 +61,7 @@ public class DB_Setup {
 			
 			System.out.println("Created administration");
 			//-----------Editeur----------------------//
-			stmt = con.createStatement();
+			//stmt = con.createStatement();
 			stmt.executeUpdate(
 					"CREATE TABLE IF NOT EXISTS Editeur " + 
 							"(IdEditeur int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -95,7 +84,7 @@ public class DB_Setup {
 			
 			System.out.println("Created Auteur");
 			//-----------TypeLivre----------------------//
-			stmt = con.createStatement();
+			//stmt = con.createStatement();
 			stmt.executeUpdate(
 					"CREATE TABLE IF NOT EXISTS TypeLivre " + 
 							"(IdTypeLivre int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -103,7 +92,7 @@ public class DB_Setup {
 					"PRIMARY KEY(IdTypeLivre))");
 			
 			
-			stmt = con.createStatement();
+			//stmt = con.createStatement();
 			stmt.executeUpdate("INSERT INTO typelivre (IdTypeLivre, LibType) VALUES" +
 		 			"(1, 'Ordinaire')"); 
 			stmt.executeUpdate("INSERT INTO typelivre (IdTypeLivre, LibType) VALUES" +
@@ -142,7 +131,7 @@ public class DB_Setup {
             
 
           //-----------LivreExemplaire----------------------//
-            stmt = con.createStatement();
+           // stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS LivreExemplaire " + 
 							"(NumExemplaire int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -158,7 +147,7 @@ public class DB_Setup {
 				
 			
           //-----------Client----------------------//
-            stmt = con.createStatement();
+          //  stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS Client " + 
 							"(IdClient int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -169,7 +158,7 @@ public class DB_Setup {
 							"EmailClient VARCHAR(50) NOT NULL,  " +
 							"PRIMARY KEY(IdClient))");
             
-            stmt = con.createStatement();
+          //  stmt = con.createStatement();
 			stmt.executeUpdate("INSERT INTO `client` (IdClient, NomClient, PrClient, AdrClient, CelClient, EmailClient) VALUES" +
 		 			"(1, 'Robitaille', 'Antoine', '36 rue Jarry montreal', '5148548954', 'antoine@gmail.com')"); 
 			stmt.executeUpdate("INSERT INTO `client` (IdClient, NomClient, PrClient, AdrClient, CelClient, EmailClient) VALUES" +
@@ -193,7 +182,7 @@ public class DB_Setup {
 							"PRIMARY KEY(IdFil))");
         	System.out.println("Created fileattente");
             //-----------Emprunt----------------------//
-            stmt = con.createStatement();
+           // stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS Emprunt " + 
 							"(IdEmprunt int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -214,7 +203,7 @@ public class DB_Setup {
 			
             
             //-----------Retour----------------------//
-            stmt = con.createStatement();
+          //  stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS Retour " + 
 							"(IdRetour int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -226,7 +215,7 @@ public class DB_Setup {
 							"PRIMARY KEY(IdRetour))"); 
         	System.out.println("Created retour");
           //-----------Relance----------------------//
-            stmt = con.createStatement();
+         //   stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS Relance " + 
 							"(IdRelance int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -237,7 +226,7 @@ public class DB_Setup {
 							"PRIMARY KEY(IdRelance))");
         	System.out.println("Created relance");
             //-----------Amende----------------------//
-            stmt = con.createStatement();
+           // stmt = con.createStatement();
             stmt.executeUpdate(
             		"CREATE TABLE IF NOT EXISTS Amende " + 
 							"(IdAmende int(10)  NOT NULL AUTO_INCREMENT, " +
@@ -252,6 +241,7 @@ public class DB_Setup {
         	//----------------------------------------------------------------
         	success = true;
         	
+        	con.commit();
             stmt.close();
 			con.close();
 		}
@@ -263,15 +253,6 @@ public class DB_Setup {
 		
 		
 	}
-//===================================== SQL ==========================
-	
- /*	SELECT livreexemplaire.NumExemplaire, livreedition.Titre, livreedition.DatePub, 
-	livreedition.NbPages,livreedition.Nombre ,livreedition.IdTypeLivre,
-	livreedition.ISBN,livreexemplaire.Disponibilite FROM livreexemplaire
-	INNER JOIN livreedition on livreedition.IdAuteur = livreexemplaire.NumExemplaire	*/
-	
-	
-//====================================================================	
-	
+
 
 }

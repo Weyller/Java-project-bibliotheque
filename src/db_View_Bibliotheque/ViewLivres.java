@@ -25,8 +25,7 @@ public class ViewLivres extends JFrame {
 	private JLabel lblNewLabel;
 
 	/**
-	 * Main method
-	 * @param args
+	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
