@@ -3,8 +3,14 @@ package db_Controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+/*
+ * Class for Client Data Access
+ * */
 public class ClientDao {
 	
+	/*
+	 * Method pour inscrire un client
+	 * */
 	public static int sauvegardeClient(String NomClient, String PrClient,String AdrClient, String CelClient,String EmailClient){
 		int status=0;
 		

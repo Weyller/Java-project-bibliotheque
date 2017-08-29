@@ -3,11 +3,14 @@ package db_Controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/*
+ * Class for database access
+ * */
 public class DB_Connection {
 	
-/*
- * 
- * */
+	/*
+	 * Method that connect to database
+	 * */
 	public static Connection getConnection(){
 		Connection con=null;
 		String username = "root";
