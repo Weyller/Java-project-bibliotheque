@@ -1,7 +1,17 @@
+/*
+ * TP2 Base de données II
+ * 
+ * @Auteurs
+ * 
+ * Weyller Desir
+ * Koffi Joachim
+ * Antoine Robitaille  
+ * 
+ * */
+
 package db_View_Bibliotheque;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

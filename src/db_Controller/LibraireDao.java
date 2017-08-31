@@ -1,3 +1,15 @@
+/*
+ * TP2 Base de données II
+ * 
+ * @Auteurs
+ * 
+ * Weyller Desir
+ * Koffi Joachim
+ * Antoine Robitaille  
+ * 
+ * */
+
+
 package db_Controller;
 import java.sql.*;
 

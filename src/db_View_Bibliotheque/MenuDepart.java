@@ -1,19 +1,27 @@
+/*
+ * TP2 Base de données II
+ * 
+ * @Auteurs
+ * 
+ * Weyller Desir
+ * Koffi Joachim
+ * Antoine Robitaille  
+ * 
+ * */
+
+
 package db_View_Bibliotheque;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.sql.Connection;
-
 import javax.swing.SwingConstants;
-
 import db_Controller.DB_Connection;
 import db_Controller.DB_Setup;
-
 import java.awt.event.ActionListener;
 import java.nio.charset.MalformedInputException;
 import java.awt.event.ActionEvent;

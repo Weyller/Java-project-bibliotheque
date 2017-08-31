@@ -1,18 +1,27 @@
+/*
+ * TP2 Base de données II
+ * 
+ * @Auteurs
+ * 
+ * Weyller Desir
+ * Koffi Joachim
+ * Antoine Robitaille  
+ * 
+ * */
+
+
 package db_View_Bibliotheque;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import db_Controller.LivresDao;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;

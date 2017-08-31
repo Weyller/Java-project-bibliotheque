@@ -1,3 +1,14 @@
+/*
+ * TP2 Base de données II
+ * 
+ * @Auteurs
+ * 
+ * Weyller Desir
+ * Koffi Joachim
+ * Antoine Robitaille  
+ * 
+ * */
+
 package db_Controller;
 
 import java.sql.Connection;
@@ -18,7 +29,7 @@ public class DB_Connection {
 		String password = "root";
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","root");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/",username,password);
 			System.out.println("Connection to DB ... success");
 			
 			
