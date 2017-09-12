@@ -36,9 +36,9 @@ public class DB_Connection {
 			Statement stmt;
 			stmt = con.createStatement();
 			stmt.executeUpdate(
-					"CREATE DATABASE IF NOT EXISTS DB_Bibliotheque");
+					"CREATE DATABASE IF NOT EXISTS DB_Bibliotheque2");
 			
-			stmt.executeUpdate("use DB_Bibliotheque");
+			stmt.executeUpdate("use DB_Bibliotheque2");
 			
 			
 		}catch(Exception e){System.out.println(e);}
